@@ -1,0 +1,20 @@
+# Dash app
+dash==2.8.0
+dash-bootstrap-components==1.3.1
+pandas==1.5.3
+openpyxl==3.1.2
+
+# Linter
+flake8==6.0.0
+flake8-quotes==3.3.2
+
+# Flask server
+Flask==2.2.2
+Flask-Assets==2.0.0
+Flask-Compress==1.13.0
+Flask-Session2==1.3.1
+Flask-Babel==3.0.1
+Werkzeug==2.3.7 # Flask 2.2.2 does not support new 3.0.0 version
+gunicorn==20.1.0
+python-dotenv==1.0.0
+requests

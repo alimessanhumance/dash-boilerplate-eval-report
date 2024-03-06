@@ -1,0 +1,12 @@
+FROM python:3.10-slim-bullseye
+
+WORKDIR /usr/src/app
+
+# Installing dependencies
+COPY requirements.txt .
+RUN python -m pip install --no-cache-dir -U pip setuptools
+RUN pip install --no-cache-dir -Ur requirements.txt
+
+# Starting application
+COPY docker-entrypoint.bash .
+ENTRYPOINT ["/usr/src/app/docker-entrypoint.bash"]

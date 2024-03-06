@@ -1,0 +1,9 @@
+[flake8]
+max-line-length = 160
+exclude = .git,.github,__pycache__,venv
+count = True
+show-source = True
+statistics = True
+
+# flake8-quotes
+inline-quotes = double

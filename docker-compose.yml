@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+    pix-dash-report-service:
+        image: dash-boilerplate
+        build:
+            context: .
+            dockerfile: Dockerfile.local
+        container_name: dash-boilerplate_standalone
+        restart: always
+        networks:
+            - pix-docker-network
+        env_file:
+            - .env
+        expose:
+            - "${SERVICE_PORT:?}"
+        ports:
+            - "${SERVICE_PORT:?}:${SERVICE_PORT:?}"
+        volumes:
+            - ./:/usr/src/app
+
+networks:
+  dash-apps-docker-network:
+    name: dash-apps-network
