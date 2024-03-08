@@ -25,7 +25,7 @@ Project structure that provides a foundation or starting point for a new Dash ap
       - assets : resources and styles for Dash app
       - callbacks : Dash app callbacks
       - components : Dash app HTML components
-      - services : API wrappers and dynamic DB connections
+      - services : API and DB wrappers for dynamic queries
       - static : translations
       - templates : Dash layouts and templates
       - utils
