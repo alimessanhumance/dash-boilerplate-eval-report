@@ -49,3 +49,23 @@ body {
     margin: 0;
     text-align: center;
 }
+
+.fadeInLeft {
+    animation-name: fadeInLeft;
+}
+
+.animated {
+    animation-duration: 1.25s;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%,0,0);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
