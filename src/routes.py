@@ -11,14 +11,14 @@ def before_request() -> None:
     """
     Global route guard.
     """
-    session.clear()
-    session["lang"] = get_user_lang(request)
+
     if not request.path.startswith(DASH_APP_PATH):
         return  # Non-dash route
 
     # Main dash route
-    # if request.path == DASH_APP_PATH:
-        # session.clear()
+    if request.path == DASH_APP_PATH:
+        session.clear()
+        session["lang"] = get_user_lang(request)
 
 
 @app.after_request
@@ -51,8 +51,9 @@ def not_found(err=None) -> make_response:
     """
     Handles not found errors (404 route).
     """
+    lang = get_user_lang(request)
 
     if err is not None:
         print(err)
 
-    return make_response(render_template(f"404/{session['lang']}.jinja2"), 404)
+    return make_response(render_template(f"404/{lang}.jinja2"), 404)
