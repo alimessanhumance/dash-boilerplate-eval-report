@@ -14,7 +14,7 @@ def home_layout(translation):
                             dcc.Loading(
                                 type="graph",
                                 fullscreen=True,
-                                children=html.H1(translation["title"]),
+                                children=html.H1(translation["title"], className="title"),
                                 className="custom-loading"  # Adjust the opacity as needed
                             ),
                         ]

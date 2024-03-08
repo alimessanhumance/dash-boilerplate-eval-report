@@ -33,11 +33,13 @@ def init_dashboard(flask_app):
         external_stylesheets=[
             # Custom fonts
             "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap",
+            "https://www.w3schools.com/w3css/4/w3.css",
             dbc.themes.BOOTSTRAP
         ],
         suppress_callback_exceptions=True
     )
-    dash_app.title = "Pixonality Data Interface"
+    dash_app.title = "Dash Boilerplate"
+    dash_app._favicon = "favicon.png"
 
     def create_layout():
         lang = session.get("lang", "en")  # Default language is "en"
