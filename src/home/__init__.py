@@ -5,23 +5,22 @@ from dash import dcc
 from dash import html
 import dash_bootstrap_components as dbc
 
-from src.dashboard.templates.navigation_bar import navigation_layout
-from src.dashboard.templates.home import home_layout
+from src.utils.lang import load_translation_file
+from src.common_dash.navigation_bar import navigation_layout
+from src.home.templates.home import home_layout
+from src.home.callbacks import init_callbacks
 
-from src.dashboard.callbacks import init_callbacks
 
-from src.dashboard.utils.lang import load_translation_file
-
-translations = load_translation_file()
+translations = load_translation_file(app_name="home")
 
 
 # Initializing dash application
-def init_dashboard(flask_app):
+def init_dashboard(flask_app, name):
     dash_app = dash.Dash(
         __name__,
         server=flask_app,
         serve_locally=True,  # To prevent serving dash dependencies from CDN so we can better control versions
-        routes_pathname_prefix=flask_app.config["DASH_APP_BASE_URL"],
+        routes_pathname_prefix=flask_app.config["DASH_APPS_BASE_URL"]+"/home/",
         update_title=None,
         meta_tags=[
             # Additional meta tags
@@ -62,6 +61,6 @@ def init_dashboard(flask_app):
     dash_app.layout = create_layout
 
     # Initialize callbacks after our app is loaded
-    init_callbacks(dash_app)
+    init_callbacks(dash_app, translation_file=translations)
 
     return dash_app.server

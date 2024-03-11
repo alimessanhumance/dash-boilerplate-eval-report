@@ -19,17 +19,25 @@ class Config:
     PERMANENT_SESSION_LIFETIME = timedelta(days=1)
     SESSION_FILE_THRESHOLD = 100
 
-    # Directories
+    # Flask Directories
     SRC_FOLDER = BASE_DIR + "/src"
     TEMP_FOLDER = BASE_DIR + "/temp"
-    DASH_FOLDER = SRC_FOLDER + "/dashboard"
     FLASK_STATIC_FOLDER = SRC_FOLDER + "/static"
-    DASH_STATIC_FOLDER = DASH_FOLDER + "/static"
-    TEMPLATES_FOLDER = DASH_FOLDER + "/templates"
-    TRANSLATION_FILE = DASH_STATIC_FOLDER + "/lang.json"
+
+    # Home directories
+    HOME_FOLDER = SRC_FOLDER + "/home"
+    HOME_STATIC_FOLDER = HOME_FOLDER + "/static"
+    HOME_TEMPLATES_FOLDER = HOME_FOLDER + "/templates"
+    HOME_TRANSLATION_FILE = HOME_STATIC_FOLDER + "/lang.json"
+
+    # Survey directories
+    SURVEY_FOLDER = SRC_FOLDER + "/survey"
+    SURVEY_STATIC_FOLDER = SURVEY_FOLDER + "/static"
+    SURVEY_TEMPLATES_FOLDER = SURVEY_FOLDER + "/templates"
+    SURVEY_TRANSLATION_FILE = SURVEY_STATIC_FOLDER + "/lang.json"
 
     # Our custom config
     SERVICE_NAME = environ.get("SERVICE_NAME")
     SERVICE_PORT = environ.get("SERVICE_PORT")
 
-    DASH_APP_BASE_URL = environ.get("DASH_APP_BASE_URL")
+    DASH_APPS_BASE_URL = environ.get("DASH_APPS_BASE_URL")

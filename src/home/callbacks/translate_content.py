@@ -1,12 +1,9 @@
 from dash.dependencies import Input, Output, State
 
-from src.dashboard.templates.home import home_layout
-from src.dashboard.utils.lang import load_translation_file
-
-translations = load_translation_file()
+from src.home.templates.home import home_layout
 
 
-def translate_content(dash_app):
+def translate_content(dash_app, translation_file):
     @dash_app.callback(
         [
             Output("body", "children"),
@@ -35,4 +32,4 @@ def translate_content(dash_app):
             lang = "en"  # Default
 
         # Return layout and reset n_clicks
-        return [home_layout(translations[lang]), None, None, lang]
+        return [home_layout(translation_file[lang]), None, None, lang]

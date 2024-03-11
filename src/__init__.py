@@ -16,10 +16,6 @@ def create_app() -> Flask:
         # Register routes
         from . import routes  # noqa
 
-        # Initialize and register Dash app
-        from .dashboard import init_dashboard
-        app = init_dashboard(app)
-
     return app
 
 
