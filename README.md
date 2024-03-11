@@ -50,3 +50,4 @@ For Dash, we load a translation file located here : src/dashboard/static/`lang.j
 1. Boilerplate for multiple Dash apps inside on Flask application
 2. Boilerplate for creating and manage a local DB (users, view, etc.)
 3. Boilerplate for authentication
+4. Add logger
